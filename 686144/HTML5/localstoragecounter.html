@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <title>
+            Local  Storage Counter
+        </title>        
+    </head>
+    <body onload="initializecounter()">
+        <h1>HTML5 Local Storage</h1>
+        <button onclick="incrementCounter()">Increment in Local Storage</button>
+        <h3 id="counterText">Inner Html</h3>
+    </body>
+    <script>
+        var numbercounter=0;
+var counterRef=document.getElementById("counterText");
+        function incrementCounter(){
+numbercounter= localStorage.getItem("counter")
+numbercounter++
+localStorage.setItem("counter",numbercounter)
+counterRef.innerHTML=numbercounter
+        }
+
+        function    initializecounter()
+        {
+            localStorage.setItem("counter",numbercounter);
+        }
+    </script>
+    </html>

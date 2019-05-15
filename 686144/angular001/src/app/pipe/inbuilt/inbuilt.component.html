@@ -1,0 +1,10 @@
+<div>
+    Demo of Inbuilt pipes:
+    <br> Savings: {{ money | currency:'INR' }}
+    <br> City: {{ location | uppercase }}
+    <br> Birthday: {{ birthday | date:'longDate' | uppercase}}
+    <br> Friends: {{ friends }}
+    <br> Friends (sorted) : {{ friends | sortstring }}
+    <br> Scores: {{ scores }}
+    <br>Scores (sorted) :{{ scores | sortnum:'dsc'}}
+</div>

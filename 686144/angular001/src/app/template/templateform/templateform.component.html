@@ -1,0 +1,9 @@
+<div>
+    Template Driven Form:
+</div>
+<div>
+    <form #simpleForm="ngForm" (ngSubmit)="submitform(simpleForm.value)">
+        <input type="text" name="fullName" [(ngModel)]="fname"> {{ fname }}
+        <button type="submit">submit</button>
+    </form>
+</div>

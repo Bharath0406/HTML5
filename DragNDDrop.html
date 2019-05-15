@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DragNDDrop</title>
+    <link rel="stylesheet" href="dragdrop.css">
+</head>
+
+<body>
+    <h1>Drag AND Drop</h1>
+
+    <div id="left" ondragover="dragstarted(event)" ondrop="dropimage1(event)">
+        <img id="ctslogo" src="cts.jpg" alt="" height="150" width="200" draggable="true" ondragstart="imageDragged(event)" ondrop="dropimage1(event)">
+    </div>
+    <div id="right" ondragover="preparingForDrop(event)" ondrop="dropimage(event)">
+        image will dropped here
+    </div>
+
+    <script>
+        var dragstarted = function(e) {
+            e.preventDefault()
+            console.log(e)
+        }
+
+        var imageDragged = function(e) {
+            console.log("logging logo")
+            console.log(e.target.id)
+            e.dataTransfer.setData("imageid", e.target.id)
+        }
+
+        var preparingForDrop = function(e) {
+            e.preventDefault()
+            console.log(e)
+        }
+
+        var dropimage = function(e) {
+            var newimageid = e.dataTransfer.getData("imageid")
+            console.log(newimageid)
+            var tempLogo = document.getElementById(newimageid)
+            e.target.innerHTML = ""
+            e.target.appendChild(tempLogo)
+
+        }
+        var dropimage1 = function(e) {
+            var newimageid1 = e.dataTransfer.getData("imageid")
+            console.log(newimageid1)
+            var tempLogo1 = document.getElementById(newimageid1)
+            e.target.innerHTML = ""
+            e.target.appendChild(tempLogo1)
+
+        }
+    </script>
+</body>
+
+</html>
